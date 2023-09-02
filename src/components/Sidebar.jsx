@@ -1,6 +1,7 @@
 import { PencilLine } from 'phosphor-react'
 
 import styles from './Sidebar.module.css';
+import { Avatar } from './Avatar';
 
 export function Siderbar () {
   return (
@@ -11,10 +12,7 @@ export function Siderbar () {
       />
 
       <div className={styles.profile}>
-        <img
-          className={styles.avatar}
-          src="https://wonder-day.com/wp-content/uploads/2023/03/wonder-day-brunette-face-avatar-31.jpg"
-        />
+       <Avatar hasBorder src="https://wonder-day.com/wp-content/uploads/2023/03/wonder-day-brunette-face-avatar-31.jpg" />
 
         <strong>Madu Lima</strong>
         <span>Web Developer</span>
