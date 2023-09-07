@@ -1,15 +1,25 @@
-import { Avatar } from './Avatar';
-import styles from './Comment.module.css';
-import { ThumbsUp, Trash } from 'phosphor-react';
+import { useState } from "react"
+import { Avatar } from "./Avatar"
+import styles from "./Comment.module.css"
+import { ThumbsUp, Trash } from "phosphor-react"
 
 export function Comment({ content, onDeleteComment }) {
-    function handleDeleteComment() {
-      onDeleteComment(content);
-    }
+  const [likeCount, setLikeCount] = useState(0)
 
+  function handleDeleteComment() {
+    onDeleteComment(content);
+  }
+
+  function handleLikeComment() {
+    setLikeCount(likeCount + 1);
+  }
+ 
   return (
     <div className={styles.comment}>
-      <Avatar hasBorder={false} src="https://static.vecteezy.com/system/resources/previews/021/907/479/non_2x/anime-girl-avatar-ai-generated-photo.jpg" />
+      <Avatar
+        hasBorder={false}
+        src="https://static.vecteezy.com/system/resources/previews/021/907/479/non_2x/anime-girl-avatar-ai-generated-photo.jpg"
+      />
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
           <header>
@@ -26,9 +36,9 @@ export function Comment({ content, onDeleteComment }) {
           <p>{content}</p>
         </div>
         <footer>
-          <button>
+          <button onClick={handleLikeComment}>
             <ThumbsUp />
-            Aplaudir <span>20</span>
+            Aplaudir <span>{likeCount}</span>
           </button>
         </footer>
       </div>
